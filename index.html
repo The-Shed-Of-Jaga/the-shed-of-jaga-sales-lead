@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SchoolDesk by The Shed of Jaga — White-Label School Management App</title>
+  <meta name="description" content="SchoolDesk by The Shed of Jaga. A white-label school management app for Android & Web — homework, attendance, exams, report cards, notices, surveys & push notifications. Your school's logo, your name, your colors.">
+  <meta name="theme-color" content="#1a3c34">
+
+  <!-- Google Analytics 4 (placeholder - replace G-XXXXXXXXXX with your Measurement ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('set', 'developer_id', 'dW5pdmVyc2Fs');
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <style>
+    :root {
+      --green-900: #1a3c34;
+      --green-800: #22493f;
+      --green-700: #2e5a4f;
+      --green-600: #3c6e60;
+      --accent: #d9a441;
+      --accent-dark: #b9862f;
+      --cream: #f7f3ea;
+      --cream-dark: #efe7d8;
+      --ink: #24332f;
+      --muted: #5d726b;
+      --white: #ffffff;
+      --radius: 16px;
+      --shadow: 0 8px 30px rgba(26, 60, 52, 0.10);
+      --maxw: 1080px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { line-height: 1.2; }
+    a { color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(26,60,52,0.12);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 20px; max-width: var(--maxw); margin: 0 auto;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-mark {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--green-700), var(--green-900));
+      color: var(--cream); display: grid; place-items: center;
+      font-weight: 800; font-size: 18px;
+    }
+    .brand-name { font-weight: 800; color: var(--green-900); }
+    .brand-name small { display: block; font-weight: 600; font-size: 11px; color: var(--muted); letter-spacing: 0.04em; }
+    .nav-links { display: none; gap: 26px; align-items: center; font-size: 15px; }
+    .nav-links a { text-decoration: none; color: var(--green-800); font-weight: 600; }
+    .nav-links a:hover { color: var(--accent-dark); }
+    .btn-whatsapp {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #25D366; color: #fff; font-weight: 700;
+      border-radius: 999px; padding: 10px 18px; text-decoration: none;
+      font-size: 14px;
+    }
+    .btn-whatsapp:hover { background: #1fb457; }
+    @media (min-width: 900px) { .nav-links { display: flex; } .nav .menu-btn { display: none; } }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background:
+        radial-gradient(1200px 500px at 85% -10%, rgba(217,164,65,0.18), transparent 60%),
+        linear-gradient(160deg, var(--green-900) 0%, var(--green-700) 60%, var(--green-800) 100%);
+      color: var(--cream);
+      padding: 64px 0 48px;
+    }
+    .hero-grid { display: grid; gap: 36px; align-items: center; }
+    @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.15fr 0.85fr; } }
+    .hero h1 {
+      font-size: clamp(28px, 5.5vw, 46px);
+      font-weight: 800; letter-spacing: -0.5px;
+      color: var(--white);
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero .sub { margin-top: 16px; font-size: clamp(16px, 2.5vw, 19px); color: #d7e3de; max-width: 560px; }
+    .hero .from { margin-top: 14px; font-style: italic; color: #b9cfc7; font-size: 14px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn-primary {
+      background: var(--accent); color: var(--green-900); font-weight: 800;
+      padding: 14px 26px; border-radius: 999px; text-decoration: none;
+      font-size: 16px; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: #e4b14f; }
+    .btn-ghost {
+      background: transparent; color: var(--cream);
+      padding: 13px 24px; border-radius: 999px; text-decoration: none;
+      font-size: 16px; font-weight: 600; border: 1px solid rgba(247,243,234,0.5);
+    }
+    .btn-ghost:hover { border-color: var(--cream); }
+    .hero-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius);
+      padding: 22px;
+      backdrop-filter: blur(4px);
+    }
+    .hero-card h3 { color: var(--white); font-size: 16px; margin-bottom: 14px; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: rgba(217,164,65,0.16); border: 1px solid rgba(217,164,65,0.35);
+      color: var(--accent); font-size: 12.5px; font-weight: 600;
+      padding: 6px 12px; border-radius: 999px;
+    }
+    .hero-proof { margin-top: 22px; font-size: 13px; color: #b9cfc7; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px; }
+    .hero-proof b { color: var(--white); }
+
+    /* ---------- Sections ---------- */
+    section { padding: 56px 0; }
+    .section-head { text-align: center; max-width: 680px; margin: 0 auto 40px; }
+    .kicker {
+      display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent-dark);
+      border: 1px solid rgba(217,164,65,0.4); background: rgba(217,164,65,0.08);
+      padding: 6px 14px; border-radius: 999px; margin-bottom: 14px;
+    }
+    .section-head h2 { font-size: clamp(24px, 4vw, 34px); color: var(--green-900); font-weight: 800; }
+    .section-head p { margin-top: 12px; color: var(--muted); font-size: 16px; }
+
+    /* ---------- JAGA story ---------- */
+    .jaga { background: var(--cream); }
+    .jaga-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .jaga-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 960px) { .jaga-grid { grid-template-columns: repeat(4, 1fr); } }
+    .jaga-card {
+      background: var(--white); border-radius: var(--radius); padding: 22px;
+      border: 1px solid rgba(26,60,52,0.08); box-shadow: var(--shadow);
+    }
+    .jaga-card .letter {
+      font-size: 32px; font-weight: 800; color: var(--accent-dark);
+    }
+    .jaga-card h3 { color: var(--green-900); font-size: 18px; margin: 6px 0 8px; }
+    .jaga-card p { font-size: 14px; color: var(--muted); }
+
+    /* ---------- Feature grid ---------- */
+    .features-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .features-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 960px) { .features-grid { grid-template-columns: repeat(3, 1fr); } }
+    .feature {
+      background: var(--white); border-radius: var(--radius);
+      border: 1px solid rgba(26,60,52,0.08);
+      padding: 22px; transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .feature:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .feature .ico {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(26,60,52,0.08); color: var(--green-800);
+      display: grid; place-items: center; margin-bottom: 14px; font-size: 22px;
+    }
+    .feature h3 { color: var(--green-900); font-size: 17px; margin-bottom: 8px; }
+    .feature p { font-size: 14px; color: var(--muted); }
+
+    /* ---------- White-label ---------- */
+    .whitelabel { background: linear-gradient(160deg, var(--green-900), var(--green-700)); color: var(--cream); }
+    .whitelabel .section-head h2 { color: var(--white); }
+    .whitelabel .section-head p { color: #d7e3de; }
+    .wl-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .wl-grid { grid-template-columns: 1fr 1fr; } }
+    .wl-card {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius); padding: 22px;
+    }
+    .wl-card h3 { color: var(--white); font-size: 16px; margin-bottom: 8px; }
+    .wl-card p { font-size: 14px; color: #d7e3de; }
+    .wl-card b { color: var(--accent); }
+
+    /* ---------- Languages ---------- */
+    .lang-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
+    .lang-chip {
+      background: var(--cream); border: 1px solid rgba(26,60,52,0.15);
+      color: var(--green-900); font-weight: 700; font-size: 14px;
+      padding: 9px 18px; border-radius: 999px;
+    }
+
+    /* ---------- Pricing ---------- */
+    .pricing-card {
+      max-width: 520px; margin: 0 auto;
+      background: var(--white); border: 2px solid rgba(217,164,65,0.5);
+      border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 30px; text-align: center;
+    }
+    .pricing-card .price-row { display: flex; align-items: baseline; justify-content: center; gap: 6px; margin: 10px 0; }
+    .pricing-card .amount { font-size: 40px; font-weight: 800; color: var(--green-900); }
+    .pricing-card .per { color: var(--muted); font-size: 15px; }
+    .pricing-card ul { list-style: none; text-align: left; margin: 18px 0; }
+    .pricing-card li { padding: 7px 0; font-size: 15px; display: flex; gap: 10px; }
+    .pricing-card li::before { content: "✓"; color: var(--green-600); font-weight: 800; }
+    .pricing-note { text-align: center; color: var(--muted); font-size: 13px; margin-top: 14px; }
+
+    /* ---------- Lead form ---------- */
+    .lead {
+      background: var(--cream);
+    }
+    .lead-form {
+      max-width: 560px; margin: 0 auto;
+      background: var(--white); border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 26px;
+    }
+    .lead-form label { display: block; font-size: 13.5px; font-weight: 700; color: var(--green-900); margin: 14px 0 6px; }
+    .lead-form input, .lead-form textarea, .lead-form select {
+      width: 100%; padding: 12px 14px; border-radius: 10px;
+      border: 1px solid rgba(26,60,52,0.2); background: var(--white);
+      font-size: 15px; font-family: inherit; color: var(--ink);
+    }
+    .lead-form input:focus, .lead-form textarea:focus, .lead-form select:focus {
+      outline: 2px solid var(--accent); border-color: transparent;
+    }
+    .lead-form textarea { resize: vertical; min-height: 80px; }
+    .lead-form .btn-primary { width: 100%; margin-top: 20px; }
+    .form-status {
+      display: none; margin-top: 16px; text-align: center;
+      padding: 12px; border-radius: 10px; font-size: 14px; font-weight: 600;
+    }
+    .form-status.ok { display: block; background: rgba(60,110,96,0.12); color: var(--green-800); }
+    .form-status.err { display: block; background: rgba(217,70,60,0.1); color: #b3261e; }
+    .privacy-line { text-align: center; font-size: 12px; color: var(--muted); margin-top: 12px; }
+
+    /* ---------- Footer ---------- */
+    footer { background: var(--green-900); color: #b9cfc7; padding: 40px 0 30px; }
+    .footer-grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+    @media (min-width: 700px) { .footer-grid { grid-template-columns: 1.4fr 1fr; } }
+    footer h4 { color: var(--white); font-size: 15px; margin-bottom: 10px; }
+    footer p, footer a.f-link { font-size: 13.5px; color: #b9cfc7; text-decoration: none; display: block; margin: 4px 0; }
+    footer a.f-link:hover { color: var(--accent); }
+    .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .story-line { font-style: italic; margin-top: 18px; font-size: 14px; color: var(--accent); }
+    .copy { border-top: 1px solid rgba(255,255,255,0.12); margin-top: 28px; padding-top: 18px; text-align: center; font-size: 12.5px; }
+
+    /* ---------- Mobile menu ---------- */
+    .menu-btn { display: block; background: none; border: none; font-size: 26px; cursor: pointer; color: var(--green-900); }
+    .mobile-menu {
+      display: none; flex-direction: column; gap: 4px;
+      padding: 8px 20px 16px; border-top: 1px solid rgba(26,60,52,0.1);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      text-decoration: none; color: var(--green-800); font-weight: 600;
+      padding: 10px 4px; border-bottom: 1px solid rgba(26,60,52,0.06); font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div class="brand-name">
+          SchoolDesk
+          <small>by The Shed of Jaga</small>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#whitelabel">White-label</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a class="btn-whatsapp" href="https://wa.me/919094946779" target="_blank" rel="noopener">
+          WhatsApp
+        </a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#features">Features</a>
+      <a href="#whitelabel">White-label</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Your school. Your name.<br><span>One powerful app.</span></h1>
+        <p class="sub">
+          SchoolDesk is a complete school-management app that carries <b>your school&rsquo;s name, logo and colours</b> —
+          with homework, attendance, exams, report cards, notices and instant push notifications built in.
+        </p>
+        <p class="from">
+          From the shade of the neem tree to digital classrooms — built by The Shed of Jaga.
+        </p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">Book a free demo</a>
+          <a href="https://wa.me/919094946779" class="btn-ghost" target="_blank" rel="noopener">Talk to us on WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>Everything a school needs, out of the box</h3>
+        <div class="hero-tags">
+          <span class="tag">Homework</span>
+          <span class="tag">Attendance</span>
+          <span class="tag">Exams & Report Cards</span>
+          <span class="tag">Notices</span>
+          <span class="tag">Push Notifications</span>
+          <span class="tag">Parent Surveys</span>
+          <span class="tag">Monthly Themes</span>
+          <span class="tag">Yearly Calendar</span>
+          <span class="tag">Leave Management</span>
+          <span class="tag">Multilingual</span>
+        </div>
+        <div class="hero-proof">
+          <b>Proven in daily school use</b> — trusted by a real school with 60+ active users, refined through months of
+          live feedback from teachers, parents and school owners.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JAGA story -->
+  <section class="jaga" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">The Shed of Jaga</span>
+        <h2>More than a farm. A growing journey.</h2>
+        <p>Rooted in tradition, care, technology, and a connection to the land — from responsible farming to practical digital applications.</p>
+      </div>
+      <div class="jaga-grid">
+        <div class="jaga-card">
+          <div class="letter">J</div>
+          <h3>Join</h3>
+          <p>Bringing people, ideas, communities and knowledge together through collaboration and shared experiences.</p>
+        </div>
+        <div class="jaga-card">
+          <div class="letter">A</div>
+          <h3>Agri</h3>
+          <p>Agriculture, livestock, dairy, mushroom cultivation, forestry and sustainable practices connected to the land.</p>
+        </div>
+        <div class="jaga-card">
+          <div class="letter">G</div>
+          <h3>Grow</h3>
+          <p>Growing crops, livestock, businesses, ideas, skills and opportunities — with respect for nature and tradition.</p>
+        </div>
+        <div class="jaga-card">
+          <div class="letter">A</div>
+          <h3>Apps</h3>
+          <p>Practical digital and Android applications that simplify everyday needs — like SchoolDesk, built for schools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Everything included</span>
+        <h2>One app for the whole school</h2>
+        <p>Teachers, parents and school owners stay connected — announcements, homework, attendance, exams, report cards, surveys and more, in English, हिन्दी and தமிழ்.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="ico">📝</div>
+          <h3>Homework & Study Material</h3>
+          <p>Post homework with images and PDFs, save private drafts to publish later, filter by class, and see who has read it.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">✅</div>
+          <h3>Attendance & Late Marking</h3>
+          <p>Quick daily attendance with late-hours tracking, leave management, monthly summaries and working-hours insights.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">📊</div>
+          <h3>Exams & Report Cards</h3>
+          <p>Create exams, per-subject dates and portions, enter marks with absent support, and auto-generate report cards with grades.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">📢</div>
+          <h3>Notices & Announcements</h3>
+          <p>Reach the whole school or specific classes; include images, PDFs and videos that stay fresh and organised.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">🔔</div>
+          <h3>Push Notifications</h3>
+          <p>Every announcement, homework, result or leave update reaches parents and staff instantly on their phone.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">🗂️</div>
+          <h3>Owners, Admins & Teachers</h3>
+          <p>Role-based access — approvals, employees, branches, franchises, monthly themes, cafeteria and more for the management team.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">💬</div>
+          <h3>Parent Messages</h3>
+          <p>A two-way inbox between parents and the school for quick, organised communication.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">📋</div>
+          <h3>Parent Surveys</h3>
+          <p>A curated multilingual question bank so parents can share feedback on every exam — reviewed privately by staff.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">🌐</div>
+          <h3>Multilingual</h3>
+          <p>English, हिन्दी and தமிழ் out of the box, with a per-user language preference that follows each person.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- White-label -->
+  <section class="whitelabel" id="whitelabel">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">White-label</span>
+        <h2>It becomes your school&rsquo;s own app</h2>
+        <p>We replace the branding with yours — your logo, your name, your colours. Your school looks like the developer, while we build, host and support.</p>
+      </div>
+      <div class="wl-grid">
+        <div class="wl-card">
+          <h3>🚀 Your brand, everywhere</h3>
+          <p>Your school emblem, app name and colour scheme across the app, the Play Store listing and every notification.</p>
+        </div>
+        <div class="wl-card">
+          <h3>📱 Android + Web</h3>
+          <p>Runs on Android phones and in the browser — parents and teachers can use whichever they prefer.</p>
+        </div>
+        <div class="wl-card">
+          <h3>🗃️ Private, isolated data</h3>
+          <p>Each school gets its own secure database. Your school&rsquo;s families, children and records stay separate and private.</p>
+        </div>
+        <div class="wl-card">
+          <h3>🧑‍🏫 Setup & support included</h3>
+          <p>We import your students, classes and staff, train your team, and stay on call for ongoing support.</p>
+        </div>
+        <div class="wl-card">
+          <h3>🔒 Privacy-first</h3>
+          <p>Data is encrypted in transit, access is role-controlled, and every school provides its own privacy policy to families.</p>
+        </div>
+        <div class="wl-card">
+          <h3>📈 Grows with you</h3>
+          <p>Multi-branch support is built in — add branches or franchises as your school expands.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Simple pricing</span>
+        <h2>One setup fee. Then a small monthly fee.</h2>
+        <p>Contact us for a quote tailored to your school&rsquo;s size. No hidden costs — hosting, support and branding are all included.</p>
+      </div>
+      <div class="pricing-card">
+        <h3 style="color: var(--green-900);">White-label School Package</h3>
+        <div class="price-row">
+          <span class="amount">₹</span>
+          <span class="per">Custom quote</span>
+        </div>
+        <ul>
+          <li>Your school&rsquo;s name, logo & colours</li>
+          <li>Android & Web app for your school</li>
+          <li>Students, classes & staff data import</li>
+          <li>Staff training & onboarding</li>
+          <li>Hosting, security & regular updates</li>
+          <li>Priority support for your school</li>
+        </ul>
+        <a href="#contact" class="btn-primary">Request a quote</a>
+        <p class="pricing-note">Multi-branch and annual plans available. Ask about our freemium option for small schools.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead form -->
+  <section class="lead" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Contact us</span>
+        <h2>Book a free demo</h2>
+        <p>Tell us a little about your school and we&rsquo;ll show you a personalised demo on WhatsApp.</p>
+      </div>
+      <form class="lead-form" id="leadForm">
+        <label for="schoolName">School name *</label>
+        <input type="text" id="schoolName" name="school_name" required placeholder="e.g. Sunrise Public School">
+
+        <label for="personName">Your name *</label>
+        <input type="text" id="personName" name="person_name" required placeholder="e.g. Ram Kumar">
+
+        <label for="phone">WhatsApp / phone number *</label>
+        <input type="tel" id="phone" name="phone" required placeholder="e.g. 98********">
+
+        <label for="email">Email (optional)</label>
+        <input type="email" id="email" name="email" placeholder="you@school.edu">
+
+        <label for="role">Your role *</label>
+        <select id="role" name="role" required>
+          <option value="">Select your role</option>
+          <option>School owner / director</option>
+          <option>Principal</option>
+          <option>Teacher / coordinator</option>
+          <option>Administrator</option>
+          <option>Other</option>
+        </select>
+
+        <label for="students">Approx. number of students</label>
+        <input type="number" id="students" name="student_count" min="1" placeholder="e.g. 200">
+
+        <label for="message">Anything you&rsquo;d like us to know?</label>
+        <textarea id="message" name="message" placeholder="e.g. We need attendance + homework + report cards..."></textarea>
+
+        <button type="submit" class="btn-primary" id="submitBtn">Send request</button>
+        <div class="form-status" id="formStatus"></div>
+        <p class="privacy-line">We only use your details to contact you about SchoolDesk. No spam.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <div class="brand-mark">S</div>
+            <div>
+              <b style="color: var(--white);">SchoolDesk</b><br>
+              <span style="font-size: 12px;">by The Shed of Jaga</span>
+            </div>
+          </div>
+          <p>Practical digital applications that simplify everyday needs — rooted in tradition, care and a connection to the land.</p>
+          <p class="story-line">&ldquo;Every shed has a story. Ours is one of people, agriculture, growth and applications.&rdquo;</p>
+        </div>
+        <div>
+          <h4>Get in touch</h4>
+          <a class="f-link" href="https://wa.me/919094946779" target="_blank" rel="noopener">WhatsApp us</a>
+          <a class="f-link" href="mailto:jagadishthangavel@gmail.com">jagadishthangavel@gmail.com</a>
+        </div>
+      </div>
+      <div class="copy">
+        © <span id="year"></span> The Shed of Jaga. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // GA4 event helper
+    function track(name, data) {
+      if (window.gtag) gtag('event', name, data);
+    }
+
+    // ----- LEAD FORM -----
+    // Configure these with your Supabase project details (see docs/setup.md):
+    const SUPABASE_URL = 'https://vuktzhuotblwqlorkyhq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_A7Qj_HAV-Ml4HKeSwY82Dw_L7eCm0Hg';
+
+    const leadForm = document.getElementById('leadForm');
+    const formStatus = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    leadForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!leadForm.checkValidity()) { leadForm.reportValidity(); return; }
+
+      const fields = {
+        school_name: document.getElementById('schoolName').value.trim(),
+        person_name: document.getElementById('personName').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        email: document.getElementById('email').value.trim() || null,
+        role: document.getElementById('role').value,
+        student_count: document.getElementById('students').value ? Number(document.getElementById('students').value) : null,
+        message: document.getElementById('message').value.trim() || null
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      try {
+        const res = await fetch(SUPABASE_URL + '/rest/v1/sales_leads', {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify(fields)
+        });
+        if (!res.ok) throw new Error(res.statusText);
+        formStatus.className = 'form-status ok';
+        formStatus.textContent = 'Thank you! We will contact you shortly on WhatsApp.';
+        track('generate_lead', { lead_source: 'schooldesk-landing' });
+        leadForm.reset();
+      } catch (err) {
+        formStatus.className = 'form-status err';
+        formStatus.textContent = 'Something went wrong. Please WhatsApp us directly at 91 99999 99999.';
+        track('lead_submit_error', { error: String(err) });
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send request';
+      }
+    });
+  </script>
+</body>
+</html>
