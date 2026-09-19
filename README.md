@@ -32,7 +32,7 @@ docs/setup.md       One-time setup: Supabase project, table SQL, GA4, WhatsApp, 
 
 1. Create the `sales-leads` Supabase project and `sales_leads` table (SQL in `docs/setup.md`)
 2. Paste the project URL + anon key into `index.html` (script block at the bottom)
-3. Replace `G-XXXXXXXXXX` (GA4) and `919999999999` (WhatsApp) placeholders
+3. Replace `919999999999` (WhatsApp, if you change it) — GA4 is already set (`G-SRGE3XJZ2W`)
 4. Push, enable GitHub Pages, share the URL on WhatsApp
 
 ## Brand

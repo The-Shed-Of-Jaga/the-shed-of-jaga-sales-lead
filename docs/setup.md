@@ -82,9 +82,10 @@ Use:
 
 ## Step 4 — Google Analytics (GA4)
 
-Replace `G-XXXXXXXXXX` (two places in `<head>`) with your GA4 Measurement ID:
-[analytics.google.com](https://analytics.google.com) → Admin → Data Streams → Web → your stream's
-Measurement ID. No ID yet? Leave the placeholder — the page still works; analytics just won't send.
+Already configured: GA4 Measurement ID `G-SRGE3XJZ2W` is set in `<head>` (both the script src and the
+`gtag('config', ...)` call). To change it later, search-replace `G-SRGE3XJZ2W` in `index.html`.
+Find your ID at [analytics.google.com](https://analytics.google.com) → Admin → Data Streams → Web →
+your stream's Measurement ID.
 
 ## Step 5 — Point the WhatsApp number at your real number
 
