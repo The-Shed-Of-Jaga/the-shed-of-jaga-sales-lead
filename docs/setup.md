@@ -1,6 +1,6 @@
-# Selling SchoolDesk — Setup Guide
+# Selling Campus Outlook — Setup Guide
 
-This repo holds the marketing / lead-capture website for **SchoolDesk by The Shed of Jaga**
+This repo holds the marketing / lead-capture website for **Campus Outlook by The Shed of Jaga**
 (white-labeled school-management app).
 
 ## What&rsquo;s inside
@@ -18,7 +18,7 @@ The landing page&rsquo;s inquiry form stores leads in a **separate Supabase proj
 (deliberately isolated from the school app&rsquo;s database).
 
 1. Go to [supabase.com](https://supabase.com) → **New project**.
-2. Name it something like `schooldesk-sales-leads` and choose a region near you.
+2. Name it something like `campus-outlook-sales-leads` and choose a region near you.
 3. On the **Security** step:
    - **Enable Data API** = ✅ ON (the form posts via REST)
    - **Automatically expose new tables** = ❌ OFF (we control access manually)
@@ -31,7 +31,7 @@ The landing page&rsquo;s inquiry form stores leads in a **separate Supabase proj
 Open **SQL Editor** in that project and run:
 
 ```sql
--- Leads captured by the SchoolDesk sales landing page.
+-- Leads captured by the Campus Outlook sales landing page.
 -- RLS is ON; ONLY anonymous INSERT is allowed from anyone (the website form).
 -- Nobody (except the DB owner / staff) can read or modify leads from the web.
 CREATE TABLE IF NOT EXISTS public.sales_leads (

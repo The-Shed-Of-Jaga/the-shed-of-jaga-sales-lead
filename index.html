@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SchoolDesk by The Shed of Jaga — White-Label School Management App</title>
-  <meta name="description" content="SchoolDesk by The Shed of Jaga. A white-label school management app for Android & Web — homework, attendance, exams, report cards, notices, surveys & push notifications. Your school's logo, your name, your colors.">
-  <meta name="theme-color" content="#1a3c34">
+  <title>Campus Outlook by The Shed of Jaga — White-Label School Management App</title>
+  <meta name="description" content="Campus Outlook by The Shed of Jaga. A white-label school management app for Android & Web — homework, attendance, exams, report cards, notices, surveys & push notifications. Your school's logo, your name, your colors.">
+  <meta name="theme-color" content="#101457">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="shortcut icon" type="image/png" href="favicon-32x32.png">
 
   <!-- Google Analytics 4 (placeholder - replace G-XXXXXXXXXX with your Measurement ID) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -19,19 +21,19 @@
 
   <style>
     :root {
-      --green-900: #1a3c34;
-      --green-800: #22493f;
-      --green-700: #2e5a4f;
-      --green-600: #3c6e60;
-      --accent: #d9a441;
-      --accent-dark: #b9862f;
-      --cream: #f7f3ea;
-      --cream-dark: #efe7d8;
-      --ink: #24332f;
-      --muted: #5d726b;
+      --indigo-900: #101457;
+      --indigo-800: #1A1E7C;
+      --indigo-700: #262B8F;
+      --indigo-600: #477571;
+      --accent: #F78109;
+      --accent-dark: #E07306;
+      --cream: #F5F4FC;
+      --cream-dark: #E9E7F7;
+      --ink: #23223F;
+      --muted: #6B6F9E;
       --white: #ffffff;
       --radius: 16px;
-      --shadow: 0 8px 30px rgba(26, 60, 52, 0.10);
+      --shadow: 0 8px 30px rgba(26, 28, 125, 0.10);
       --maxw: 1080px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -53,23 +55,26 @@
       position: sticky; top: 0; z-index: 50;
       background: rgba(255,255,255,0.92);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(26,60,52,0.12);
+      border-bottom: 1px solid rgba(26,28,125,0.12);
     }
     .nav {
       display: flex; align-items: center; justify-content: space-between;
       padding: 12px 20px; max-width: var(--maxw); margin: 0 auto;
     }
     .brand { display: flex; align-items: center; gap: 10px; }
-    .brand-mark {
-      width: 38px; height: 38px; border-radius: 10px;
-      background: linear-gradient(135deg, var(--green-700), var(--green-900));
-      color: var(--cream); display: grid; place-items: center;
-      font-weight: 800; font-size: 18px;
+    .brand-logo {
+      height: 52px; width: auto; display: block;
+      border-radius: 6px;
     }
-    .brand-name { font-weight: 800; color: var(--green-900); }
+    .brand-name {
+      font-weight: 800; font-size: 34px; line-height: 1; letter-spacing: 0.01em;
+      background: linear-gradient(135deg, #EB116E 0%, #701270 25%, #101457 50%, #477571 72%, #F78109 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      padding-bottom: 2px;
+    }
     .brand-name small { display: block; font-weight: 600; font-size: 11px; color: var(--muted); letter-spacing: 0.04em; }
     .nav-links { display: none; gap: 26px; align-items: center; font-size: 15px; }
-    .nav-links a { text-decoration: none; color: var(--green-800); font-weight: 600; }
+    .nav-links a { text-decoration: none; color: var(--indigo-800); font-weight: 600; }
     .nav-links a:hover { color: var(--accent-dark); }
     .btn-whatsapp {
       display: inline-flex; align-items: center; gap: 8px;
@@ -83,8 +88,8 @@
     /* ---------- Hero ---------- */
     .hero {
       background:
-        radial-gradient(1200px 500px at 85% -10%, rgba(217,164,65,0.18), transparent 60%),
-        linear-gradient(160deg, var(--green-900) 0%, var(--green-700) 60%, var(--green-800) 100%);
+        radial-gradient(1200px 500px at 85% -10%, rgba(247,129,9,0.18), transparent 60%),
+        linear-gradient(160deg, var(--indigo-900) 0%, var(--indigo-700) 60%, var(--indigo-800) 100%);
       color: var(--cream);
       padding: 64px 0 48px;
     }
@@ -96,19 +101,19 @@
       color: var(--white);
     }
     .hero h1 span { color: var(--accent); }
-    .hero .sub { margin-top: 16px; font-size: clamp(16px, 2.5vw, 19px); color: #d7e3de; max-width: 560px; }
-    .hero .from { margin-top: 14px; font-style: italic; color: #b9cfc7; font-size: 14px; }
+    .hero .sub { margin-top: 16px; font-size: clamp(16px, 2.5vw, 19px); color: #D7D8F0; max-width: 560px; }
+    .hero .from { margin-top: 14px; font-style: italic; color: #B9BBE6; font-size: 14px; }
     .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
     .btn-primary {
-      background: var(--accent); color: var(--green-900); font-weight: 800;
+      background: var(--accent); color: var(--indigo-900); font-weight: 800;
       padding: 14px 26px; border-radius: 999px; text-decoration: none;
       font-size: 16px; border: none; cursor: pointer;
     }
-    .btn-primary:hover { background: #e4b14f; }
+    .btn-primary:hover { background: #F79A36; }
     .btn-ghost {
       background: transparent; color: var(--cream);
       padding: 13px 24px; border-radius: 999px; text-decoration: none;
-      font-size: 16px; font-weight: 600; border: 1px solid rgba(247,243,234,0.5);
+      font-size: 16px; font-weight: 600; border: 1px solid rgba(245,244,252,0.5);
     }
     .btn-ghost:hover { border-color: var(--cream); }
     .hero-card {
@@ -121,11 +126,11 @@
     .hero-card h3 { color: var(--white); font-size: 16px; margin-bottom: 14px; }
     .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .tag {
-      background: rgba(217,164,65,0.16); border: 1px solid rgba(217,164,65,0.35);
-      color: var(--accent); font-size: 12.5px; font-weight: 600;
+      background: rgba(247,129,9,0.16); border: 1px solid rgba(247,129,9,0.35);
+      color: #F9A94B; font-size: 12.5px; font-weight: 600;
       padding: 6px 12px; border-radius: 999px;
     }
-    .hero-proof { margin-top: 22px; font-size: 13px; color: #b9cfc7; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px; }
+    .hero-proof { margin-top: 22px; font-size: 13px; color: #B9BBE6; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px; }
     .hero-proof b { color: var(--white); }
 
     /* ---------- Sections ---------- */
@@ -134,10 +139,10 @@
     .kicker {
       display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--accent-dark);
-      border: 1px solid rgba(217,164,65,0.4); background: rgba(217,164,65,0.08);
+      border: 1px solid rgba(247,129,9,0.4); background: rgba(247,129,9,0.08);
       padding: 6px 14px; border-radius: 999px; margin-bottom: 14px;
     }
-    .section-head h2 { font-size: clamp(24px, 4vw, 34px); color: var(--green-900); font-weight: 800; }
+    .section-head h2 { font-size: clamp(24px, 4vw, 34px); color: var(--indigo-900); font-weight: 800; }
     .section-head p { margin-top: 12px; color: var(--muted); font-size: 16px; }
 
     /* ---------- JAGA story ---------- */
@@ -147,12 +152,12 @@
     @media (min-width: 960px) { .jaga-grid { grid-template-columns: repeat(4, 1fr); } }
     .jaga-card {
       background: var(--white); border-radius: var(--radius); padding: 22px;
-      border: 1px solid rgba(26,60,52,0.08); box-shadow: var(--shadow);
+      border: 1px solid rgba(26,28,125,0.08); box-shadow: var(--shadow);
     }
     .jaga-card .letter {
       font-size: 32px; font-weight: 800; color: var(--accent-dark);
     }
-    .jaga-card h3 { color: var(--green-900); font-size: 18px; margin: 6px 0 8px; }
+    .jaga-card h3 { color: var(--indigo-900); font-size: 18px; margin: 6px 0 8px; }
     .jaga-card p { font-size: 14px; color: var(--muted); }
 
     /* ---------- Feature grid ---------- */
@@ -161,22 +166,75 @@
     @media (min-width: 960px) { .features-grid { grid-template-columns: repeat(3, 1fr); } }
     .feature {
       background: var(--white); border-radius: var(--radius);
-      border: 1px solid rgba(26,60,52,0.08);
+      border: 1px solid rgba(26,28,125,0.08);
       padding: 22px; transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
     .feature:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
     .feature .ico {
       width: 44px; height: 44px; border-radius: 12px;
-      background: rgba(26,60,52,0.08); color: var(--green-800);
+      background: rgba(26,28,125,0.08); color: var(--indigo-800);
       display: grid; place-items: center; margin-bottom: 14px; font-size: 22px;
     }
-    .feature h3 { color: var(--green-900); font-size: 17px; margin-bottom: 8px; }
+    .feature h3 { color: var(--indigo-900); font-size: 17px; margin-bottom: 8px; }
     .feature p { font-size: 14px; color: var(--muted); }
 
+    /* ---------- Screenshot carousel ---------- */
+    .gallery {
+      background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+      padding: 56px 0 64px;
+    }
+    .carousel {
+      display: grid; grid-template-columns: 1fr; gap: 20px; align-items: center;
+      margin-top: 28px;
+    }
+    @media (min-width: 900px) { .carousel { grid-template-columns: 1fr 2fr 1fr; } }
+    .phone-hint {
+      order: 0; font-weight: 700; font-size: 13px; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--muted); display: none;
+    }
+    @media (min-width: 900px) { .phone-hint { display: block; } }
+    .carousel-stage {
+      position: relative; margin: 0 auto; width: min(340px, 72vw);
+      aspect-ratio: 9 / 19.2; overflow: hidden; border-radius: 28px;
+      box-shadow: 0 22px 60px rgba(16,20,87,0.35);
+      border: 4px solid var(--white); outline: 1px solid rgba(16,20,87,0.15);
+      background: #0c0e38;
+    }
+    .slide {
+      position: absolute; inset: 0; display: grid; place-items: center;
+      transition: opacity 0.45s ease, transform 0.45s ease; transform: scale(0.92);
+      opacity: 0; pointer-events: none;
+    }
+    .slide.active { opacity: 1; transform: scale(1); pointer-events: auto; }
+    .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .carousel-nav {
+      order: 2; display: flex; gap: 10px; justify-content: center;
+    }
+    @media (min-width: 900px) .carousel-nav { order: 1; }
+    .carousel-btn {
+      background: var(--white); border: 1px solid rgba(16,20,87,0.2);
+      color: var(--indigo-900); width: 46px; height: 46px; border-radius: 50%;
+      font-size: 20px; font-weight: 800; cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+    }
+    .carousel-btn:hover { background: var(--indigo-900); color: var(--white); transform: translateY(-2px); }
+    .carousel-caption {
+      order: 1; text-align: center; font-weight: 700; color: var(--indigo-900);
+    }
+    @media (min-width: 900px) { .carousel-caption { order: 3; } }
+    .carousel-dots { order: 3; display: flex; gap: 8px; justify-content: center; margin-top: 18px; }
+    @media (min-width: 900px) { .carousel-dots { order: 0; } }
+    .dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: rgba(16,20,87,0.2); border: none; cursor: pointer; padding: 0;
+      transition: background 0.15s ease, width 0.15s ease;
+    }
+    .dot.active { background: var(--accent); width: 26px; border-radius: 6px; }
+
     /* ---------- White-label ---------- */
-    .whitelabel { background: linear-gradient(160deg, var(--green-900), var(--green-700)); color: var(--cream); }
+    .whitelabel { background: linear-gradient(160deg, var(--indigo-900), var(--indigo-700)); color: var(--cream); }
     .whitelabel .section-head h2 { color: var(--white); }
-    .whitelabel .section-head p { color: #d7e3de; }
+    .whitelabel .section-head p { color: #D7D8F0; }
     .wl-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
     @media (min-width: 640px) { .wl-grid { grid-template-columns: 1fr 1fr; } }
     .wl-card {
@@ -184,45 +242,43 @@
       border-radius: var(--radius); padding: 22px;
     }
     .wl-card h3 { color: var(--white); font-size: 16px; margin-bottom: 8px; }
-    .wl-card p { font-size: 14px; color: #d7e3de; }
-    .wl-card b { color: var(--accent); }
+    .wl-card p { font-size: 14px; color: #D7D8F0; }
+    .wl-card b { color: #F9A94B; }
 
     /* ---------- Languages ---------- */
     .lang-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
     .lang-chip {
-      background: var(--cream); border: 1px solid rgba(26,60,52,0.15);
-      color: var(--green-900); font-weight: 700; font-size: 14px;
+      background: var(--cream); border: 1px solid rgba(26,28,125,0.15);
+      color: var(--indigo-900); font-weight: 700; font-size: 14px;
       padding: 9px 18px; border-radius: 999px;
     }
 
     /* ---------- Pricing ---------- */
     .pricing-card {
       max-width: 520px; margin: 0 auto;
-      background: var(--white); border: 2px solid rgba(217,164,65,0.5);
+      background: var(--white); border: 2px solid rgba(247,129,9,0.5);
       border-radius: var(--radius); box-shadow: var(--shadow);
       padding: 30px; text-align: center;
     }
     .pricing-card .price-row { display: flex; align-items: baseline; justify-content: center; gap: 6px; margin: 10px 0; }
-    .pricing-card .amount { font-size: 40px; font-weight: 800; color: var(--green-900); }
+    .pricing-card .amount { font-size: 40px; font-weight: 800; color: var(--indigo-900); }
     .pricing-card .per { color: var(--muted); font-size: 15px; }
     .pricing-card ul { list-style: none; text-align: left; margin: 18px 0; }
     .pricing-card li { padding: 7px 0; font-size: 15px; display: flex; gap: 10px; }
-    .pricing-card li::before { content: "✓"; color: var(--green-600); font-weight: 800; }
+    .pricing-card li::before { content: "\2713"; color: var(--indigo-600); font-weight: 800; }
     .pricing-note { text-align: center; color: var(--muted); font-size: 13px; margin-top: 14px; }
 
     /* ---------- Lead form ---------- */
-    .lead {
-      background: var(--cream);
-    }
+    .lead { background: var(--cream); }
     .lead-form {
       max-width: 560px; margin: 0 auto;
       background: var(--white); border-radius: var(--radius);
       box-shadow: var(--shadow); padding: 26px;
     }
-    .lead-form label { display: block; font-size: 13.5px; font-weight: 700; color: var(--green-900); margin: 14px 0 6px; }
+    .lead-form label { display: block; font-size: 13.5px; font-weight: 700; color: var(--indigo-900); margin: 14px 0 6px; }
     .lead-form input, .lead-form textarea, .lead-form select {
       width: 100%; padding: 12px 14px; border-radius: 10px;
-      border: 1px solid rgba(26,60,52,0.2); background: var(--white);
+      border: 1px solid rgba(26,28,125,0.20); background: var(--white);
       font-size: 15px; font-family: inherit; color: var(--ink);
     }
     .lead-form input:focus, .lead-form textarea:focus, .lead-form select:focus {
@@ -234,31 +290,35 @@
       display: none; margin-top: 16px; text-align: center;
       padding: 12px; border-radius: 10px; font-size: 14px; font-weight: 600;
     }
-    .form-status.ok { display: block; background: rgba(60,110,96,0.12); color: var(--green-800); }
+    .form-status.ok { display: block; background: rgba(26,28,125,0.10); color: var(--indigo-800); }
     .form-status.err { display: block; background: rgba(217,70,60,0.1); color: #b3261e; }
     .privacy-line { text-align: center; font-size: 12px; color: var(--muted); margin-top: 12px; }
 
     /* ---------- Footer ---------- */
-    footer { background: var(--green-900); color: #b9cfc7; padding: 40px 0 30px; }
+    footer { background: var(--indigo-900); color: #C9CBE8; padding: 40px 0 30px; }
     .footer-grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
     @media (min-width: 700px) { .footer-grid { grid-template-columns: 1.4fr 1fr; } }
     footer h4 { color: var(--white); font-size: 15px; margin-bottom: 10px; }
-    footer p, footer a.f-link { font-size: 13.5px; color: #b9cfc7; text-decoration: none; display: block; margin: 4px 0; }
+    footer p, footer a.f-link { font-size: 13.5px; color: #C9CBE8; text-decoration: none; display: block; margin: 4px 0; }
     footer a.f-link:hover { color: var(--accent); }
     .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .footer-logo {
+      height: 38px; width: auto; display: block;
+      background: var(--white); border-radius: 8px; padding: 3px;
+    }
     .story-line { font-style: italic; margin-top: 18px; font-size: 14px; color: var(--accent); }
     .copy { border-top: 1px solid rgba(255,255,255,0.12); margin-top: 28px; padding-top: 18px; text-align: center; font-size: 12.5px; }
 
     /* ---------- Mobile menu ---------- */
-    .menu-btn { display: block; background: none; border: none; font-size: 26px; cursor: pointer; color: var(--green-900); }
+    .menu-btn { display: block; background: none; border: none; font-size: 26px; cursor: pointer; color: var(--indigo-900); }
     .mobile-menu {
       display: none; flex-direction: column; gap: 4px;
-      padding: 8px 20px 16px; border-top: 1px solid rgba(26,60,52,0.1);
+      padding: 8px 20px 16px; border-top: 1px solid rgba(26,28,125,0.12);
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a {
-      text-decoration: none; color: var(--green-800); font-weight: 600;
-      padding: 10px 4px; border-bottom: 1px solid rgba(26,60,52,0.06); font-size: 15px;
+      text-decoration: none; color: var(--indigo-800); font-weight: 600;
+      padding: 10px 4px; border-bottom: 1px solid rgba(26,28,125,0.06); font-size: 15px;
     }
   </style>
 </head>
@@ -268,14 +328,12 @@
   <header>
     <div class="nav">
       <div class="brand">
-        <div class="brand-mark">S</div>
-        <div class="brand-name">
-          SchoolDesk
-          <small>by The Shed of Jaga</small>
-        </div>
+        <img class="brand-logo" src="the-shed-of-jaga-logo.png" alt="The Shed of Jaga logo">
+        <div class="brand-name" aria-label="Campus Outlook">Campus Outlook</div>
       </div>
       <nav class="nav-links">
         <a href="#features">Features</a>
+        <a href="#gallery">Gallery</a>
         <a href="#whitelabel">White-label</a>
         <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
@@ -287,6 +345,7 @@
     </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="#features">Features</a>
+      <a href="#gallery">Gallery</a>
       <a href="#whitelabel">White-label</a>
       <a href="#pricing">Pricing</a>
       <a href="#contact">Contact</a>
@@ -299,7 +358,7 @@
       <div>
         <h1>Your school. Your name.<br><span>One powerful app.</span></h1>
         <p class="sub">
-          SchoolDesk is a complete school-management app that carries <b>your school&rsquo;s name, logo and colours</b> —
+          Campus Outlook is a complete school-management app that carries <b>your school's name, logo and colours</b> —
           with homework, attendance, exams, report cards, notices and instant push notifications built in.
         </p>
         <p class="from">
@@ -332,35 +391,33 @@
     </div>
   </section>
 
-  <!-- JAGA story -->
-  <section class="jaga" id="about">
+  <!-- Screenshot gallery -->
+  <section class="gallery" id="gallery">
     <div class="wrap">
       <div class="section-head">
-        <span class="kicker">The Shed of Jaga</span>
-        <h2>More than a farm. A growing journey.</h2>
-        <p>Rooted in tradition, care, technology, and a connection to the land — from responsible farming to practical digital applications.</p>
+        <span class="kicker">See it in action</span>
+        <h2>A quick look at the app</h2>
+        <p>Real screens from the working app — built for everyday school life.</p>
       </div>
-      <div class="jaga-grid">
-        <div class="jaga-card">
-          <div class="letter">J</div>
-          <h3>Join</h3>
-          <p>Bringing people, ideas, communities and knowledge together through collaboration and shared experiences.</p>
+      <div class="carousel">
+        <div class="phone-hint">Swipe or tap the arrows to browse</div>
+        <div class="carousel-stage" id="carouselStage">
+          <div class="slide active"><img src="appgallery/parentsdashboard.png" alt="Parent dashboard"></div>
+          <div class="slide"><img src="appgallery/ownersdashboard.png" alt="Owner dashboard"></div>
+          <div class="slide"><img src="appgallery/Teachersdashboard.png" alt="Teacher dashboard"></div>
+          <div class="slide"><img src="appgallery/homeworks.png" alt="Homework list"></div>
+          <div class="slide"><img src="appgallery/attendence.png" alt="Attendance & leave"></div>
+          <div class="slide"><img src="appgallery/exams.png" alt="Exam center"></div>
+          <div class="slide"><img src="appgallery/reportcad.png" alt="Report card"></div>
+          <div class="slide"><img src="appgallery/summary.png" alt="Monthly summary"></div>
+          <div class="slide"><img src="appgallery/Videosharing.png" alt="Video & photo sharing"></div>
         </div>
-        <div class="jaga-card">
-          <div class="letter">A</div>
-          <h3>Agri</h3>
-          <p>Agriculture, livestock, dairy, mushroom cultivation, forestry and sustainable practices connected to the land.</p>
+        <div class="carousel-nav">
+          <button class="carousel-btn" onclick="moveSlide(-1)" aria-label="Previous">◀</button>
+          <button class="carousel-btn" onclick="moveSlide(1)" aria-label="Next">▶</button>
         </div>
-        <div class="jaga-card">
-          <div class="letter">G</div>
-          <h3>Grow</h3>
-          <p>Growing crops, livestock, businesses, ideas, skills and opportunities — with respect for nature and tradition.</p>
-        </div>
-        <div class="jaga-card">
-          <div class="letter">A</div>
-          <h3>Apps</h3>
-          <p>Practical digital and Android applications that simplify everyday needs — like SchoolDesk, built for schools.</p>
-        </div>
+        <div class="carousel-caption" id="carouselCaption">Parent dashboard</div>
+        <div class="carousel-dots" id="carouselDots"></div>
       </div>
     </div>
   </section>
@@ -385,6 +442,11 @@
           <p>Quick daily attendance with late-hours tracking, leave management, monthly summaries and working-hours insights.</p>
         </div>
         <div class="feature">
+          <div class="ico">🏖️</div>
+          <h3>Leave Management</h3>
+          <p>Students and staff apply for leave in-app — approvals, status tracking, reject reasons and leave summaries, all in one place.</p>
+        </div>
+        <div class="feature">
           <div class="ico">📊</div>
           <h3>Exams & Report Cards</h3>
           <p>Create exams, per-subject dates and portions, enter marks with absent support, and auto-generate report cards with grades.</p>
@@ -395,6 +457,11 @@
           <p>Reach the whole school or specific classes; include images, PDFs and videos that stay fresh and organised.</p>
         </div>
         <div class="feature">
+          <div class="ico">🎥</div>
+          <h3>Photo & Video Sharing</h3>
+          <p>Share event photos and videos with parents through notices and homework — auto-removed after a few days to stay tidy.</p>
+        </div>
+        <div class="feature">
           <div class="ico">🔔</div>
           <h3>Push Notifications</h3>
           <p>Every announcement, homework, result or leave update reaches parents and staff instantly on their phone.</p>
@@ -402,7 +469,17 @@
         <div class="feature">
           <div class="ico">🗂️</div>
           <h3>Owners, Admins & Teachers</h3>
-          <p>Role-based access — approvals, employees, branches, franchises, monthly themes, cafeteria and more for the management team.</p>
+          <p>Role-based access — approvals, employees, branches, monthly themes, cafeteria and more for the management team.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">🏢</div>
+          <h3>Franchise & Branch Management</h3>
+          <p>Run multiple school branches and franchises from one control centre — each with its own staff, classes, data and dashboard.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">🏆</div>
+          <h3>Hall of Fame</h3>
+          <p>Celebrate student achievements with a dedicated Hall of Fame — winners' moments shared with families and the school community.</p>
         </div>
         <div class="feature">
           <div class="ico">💬</div>
@@ -413,6 +490,16 @@
           <div class="ico">📋</div>
           <h3>Parent Surveys</h3>
           <p>A curated multilingual question bank so parents can share feedback on every exam — reviewed privately by staff.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">📅</div>
+          <h3>Yearly Calendar & Schedules</h3>
+          <p>An academic-year calendar with events, celebrations, monthly themes, traditional games and diet charts — shared with every family.</p>
+        </div>
+        <div class="feature">
+          <div class="ico">👁️</div>
+          <h3>Read Receipts</h3>
+          <p>Teachers and owners see exactly who has read each homework and announcement — one glance at who is up to date.</p>
         </div>
         <div class="feature">
           <div class="ico">🌐</div>
@@ -428,7 +515,7 @@
     <div class="wrap">
       <div class="section-head">
         <span class="kicker">White-label</span>
-        <h2>It becomes your school&rsquo;s own app</h2>
+        <h2>It becomes your school's own app</h2>
         <p>We replace the branding with yours — your logo, your name, your colours. Your school looks like the developer, while we build, host and support.</p>
       </div>
       <div class="wl-grid">
@@ -442,7 +529,7 @@
         </div>
         <div class="wl-card">
           <h3>🗃️ Private, isolated data</h3>
-          <p>Each school gets its own secure database. Your school&rsquo;s families, children and records stay separate and private.</p>
+          <p>Each school gets its own secure database. Your school's families, children and records stay separate and private.</p>
         </div>
         <div class="wl-card">
           <h3>🧑‍🏫 Setup & support included</h3>
@@ -465,17 +552,17 @@
     <div class="wrap">
       <div class="section-head">
         <span class="kicker">Simple pricing</span>
-        <h2>One setup fee. Then a small monthly fee.</h2>
-        <p>Contact us for a quote tailored to your school&rsquo;s size. No hidden costs — hosting, support and branding are all included.</p>
+        <h2>One setup fee + small monthly fee</h2>
+        <p>Contact us for a quote tailored to your school's size. No hidden costs — hosting, support and branding are all included.</p>
       </div>
       <div class="pricing-card">
-        <h3 style="color: var(--green-900);">White-label School Package</h3>
+        <h3 style="color: var(--indigo-900);">White-label School Package</h3>
         <div class="price-row">
           <span class="amount">₹</span>
           <span class="per">Custom quote</span>
         </div>
         <ul>
-          <li>Your school&rsquo;s name, logo & colours</li>
+          <li>Your school's name, logo & colours</li>
           <li>Android & Web app for your school</li>
           <li>Students, classes & staff data import</li>
           <li>Staff training & onboarding</li>
@@ -494,7 +581,7 @@
       <div class="section-head">
         <span class="kicker">Contact us</span>
         <h2>Book a free demo</h2>
-        <p>Tell us a little about your school and we&rsquo;ll show you a personalised demo on WhatsApp.</p>
+        <p>Tell us a little about your school and we'll show you a personalised demo on WhatsApp.</p>
       </div>
       <form class="lead-form" id="leadForm">
         <label for="schoolName">School name *</label>
@@ -522,12 +609,12 @@
         <label for="students">Approx. number of students</label>
         <input type="number" id="students" name="student_count" min="1" placeholder="e.g. 200">
 
-        <label for="message">Anything you&rsquo;d like us to know?</label>
+        <label for="message">Anything you'd like us to know?</label>
         <textarea id="message" name="message" placeholder="e.g. We need attendance + homework + report cards..."></textarea>
 
         <button type="submit" class="btn-primary" id="submitBtn">Send request</button>
         <div class="form-status" id="formStatus"></div>
-        <p class="privacy-line">We only use your details to contact you about SchoolDesk. No spam.</p>
+        <p class="privacy-line">We only use your details to contact you about Campus Outlook. No spam.</p>
       </form>
     </div>
   </section>
@@ -538,14 +625,14 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand">
-            <div class="brand-mark">S</div>
+            <img class="footer-logo" src="the-shed-of-jaga-logo.png" alt="The Shed of Jaga logo">
             <div>
-              <b style="color: var(--white);">SchoolDesk</b><br>
+              <b style="color: var(--white);">Campus Outlook</b><br>
               <span style="font-size: 12px;">by The Shed of Jaga</span>
             </div>
           </div>
           <p>Practical digital applications that simplify everyday needs — rooted in tradition, care and a connection to the land.</p>
-          <p class="story-line">&ldquo;Every shed has a story. Ours is one of people, agriculture, growth and applications.&rdquo;</p>
+          <p class="story-line">"Every shed has a story. Ours is one of people, agriculture, growth and applications."</p>
         </div>
         <div>
           <h4>Get in touch</h4>
@@ -568,13 +655,58 @@
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // ----- Screenshot carousel -----
+    const slides = Array.from(document.querySelectorAll('#carouselStage .slide'));
+    const captions = slides.map(s => s.getAttribute('alt') || '');
+    const dotsWrap = document.getElementById('carouselDots');
+    let current = 0, timer = null;
+
+    captions.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      d.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(d);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    function paint() {
+      slides.forEach((s, i) => s.classList.toggle('active', i === current));
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      document.getElementById('carouselCaption').textContent = captions[current];
+    }
+
+    function goTo(i) {
+      current = (i + slides.length) % slides.length;
+      paint();
+      restart();
+    }
+    function moveSlide(dir) { goTo(current + dir); }
+
+    function restart() {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), 4500);
+    }
+    restart();
+
+    const stage = document.getElementById('carouselStage');
+    let touchX = null;
+    stage.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener('touchend', e => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) {
+        if (dx < 0) moveSlide(1); else moveSlide(-1);
+      }
+      touchX = null;
+    }, { passive: true });
+
     // GA4 event helper
     function track(name, data) {
       if (window.gtag) gtag('event', name, data);
     }
 
     // ----- LEAD FORM -----
-    // Configure these with your Supabase project details (see docs/setup.md):
     const SUPABASE_URL = 'https://vuktzhuotblwqlorkyhq.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_A7Qj_HAV-Ml4HKeSwY82Dw_L7eCm0Hg';
 
@@ -613,11 +745,11 @@
         if (!res.ok) throw new Error(res.statusText);
         formStatus.className = 'form-status ok';
         formStatus.textContent = 'Thank you! We will contact you shortly on WhatsApp.';
-        track('generate_lead', { lead_source: 'schooldesk-landing' });
+        track('generate_lead', { lead_source: 'campusoutlook-landing' });
         leadForm.reset();
       } catch (err) {
         formStatus.className = 'form-status err';
-        formStatus.textContent = 'Something went wrong. Please WhatsApp us directly at 91 99999 99999.';
+        formStatus.textContent = 'Something went wrong. Please WhatsApp us directly at +91 90949 46779.';
         track('lead_submit_error', { error: String(err) });
       } finally {
         submitBtn.disabled = false;

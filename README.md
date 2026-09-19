@@ -1,6 +1,6 @@
-# SchoolDesk by The Shed of Jaga — Sales Site
+# Campus Outlook by The Shed of Jaga — Sales Site
 
-Mobile-first landing page to collect leads for **SchoolDesk**, the white-labeled
+Mobile-first landing page to collect leads for **Campus Outlook**, the white-labeled
 school-management app built and supported by **The Shed of Jaga**.
 
 > School owners see *your* app — your logo, your name, your colours — while we build,
@@ -13,7 +13,7 @@ school-management app built and supported by **The Shed of Jaga**.
 
 ## What it does
 
-- Introduces SchoolDesk as a white-label product for schools
+- Introduces Campus Outlook as a white-label product for schools
 - Shows the full feature set (homework, attendance, exams, report cards, notices,
   surveys, push notifications, multilingual EN/HI/TA)
 - Explains the white-label model (your brand, private data, setup & support included)
