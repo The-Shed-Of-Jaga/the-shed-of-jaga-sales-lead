@@ -1,0 +1,23 @@
+name: Supabase Keep-Alive
+
+on:
+  schedule:
+    - cron: '30 8 */2 * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase via keepalive RPC
+        run: |
+          CODE=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+            "https://vuktzhuotblwqlorkyhq.supabase.co/rest/v1/rpc/keepalive_ping" \
+            -H "apikey: sb_publishable_A7Qj_HAV-Ml4HKeSwY82Dw_L7eCm0Hg" \
+            -H "Authorization: Bearer sb_publishable_A7Qj_HAV-Ml4HKeSwY82Dw_L7eCm0Hg" \
+            -H "Content-Type: application/json" -d "{}")
+          echo "keepalive ping -> HTTP $CODE"
+          if [ "$CODE" != "200" ] && [ "$CODE" != "204" ]; then
+            echo "Supabase keep-alive FAILED (HTTP $CODE) - check the project"
+            exit 1
+          fi
