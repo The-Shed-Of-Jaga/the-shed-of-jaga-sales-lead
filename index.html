@@ -267,6 +267,44 @@
     .pricing-card li { padding: 7px 0; font-size: 15px; display: flex; gap: 10px; }
     .pricing-card li::before { content: "\2713"; color: var(--indigo-600); font-weight: 800; }
     .pricing-note { text-align: center; color: var(--muted); font-size: 13px; margin-top: 14px; }
+    .setup-strip {
+      max-width: 620px; margin: 0 auto 34px;
+      background: linear-gradient(135deg, rgba(16,20,87,0.06), rgba(247,129,9,0.10));
+      border: 1px solid rgba(247,129,9,0.4);
+      border-radius: var(--radius); padding: 18px 22px;
+      text-align: center;
+    }
+    .setup-strip strong { color: var(--indigo-900); }
+    .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 900px; margin: 0 auto; }
+    @media (min-width: 640px) { .pricing-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 960px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); } }
+    .tier-card {
+      background: var(--white); border: 1px solid rgba(16,20,87,0.12);
+      border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 22px 20px; display: flex; flex-direction: column; gap: 4px;
+    }
+    .tier-card.popular {
+      border: 2px solid var(--accent);
+      position: relative;
+    }
+    .tier-card.popular::before {
+      content: "Most popular"; position: absolute; top: -12px; left: 50%;
+      transform: translateX(-50%); background: var(--accent); color: var(--white);
+      font-size: 11px; font-weight: 800; letter-spacing: 0.4px;
+      padding: 4px 14px; border-radius: 999px; white-space: nowrap;
+    }
+    .tier-card .tier-name { font-weight: 800; color: var(--indigo-900); font-size: 16px; }
+    .tier-card .tier-students { color: var(--muted); font-size: 13px; }
+    .tier-card .tier-price { margin: 10px 0 4px; }
+    .tier-card .tier-price .amount { font-size: 30px; font-weight: 800; color: var(--indigo-900); }
+    .tier-card .tier-price .per { color: var(--muted); font-size: 14px; }
+    .tier-card .tier-annual { color: var(--muted); font-size: 12.5px; }
+    .tier-card hr { border: 0; border-top: 1px solid rgba(16,20,87,0.10); margin: 12px 0; }
+    .tier-card ul { list-style: none; text-align: left; margin: 0 0 6px; }
+    .tier-card li { padding: 5px 0; font-size: 13.5px; display: flex; gap: 8px; }
+    .tier-card li::before { content: "\2713"; color: var(--indigo-600); font-weight: 800; }
+    .tier-card .btn-primary { margin-top: auto; padding: 11px 14px; }
+    .pricing-footnote { max-width: 720px; margin: 22px auto 0; text-align: center; color: var(--muted); font-size: 13px; line-height: 1.7; }
 
     /* ---------- Lead form ---------- */
     .lead { background: var(--cream); }
@@ -551,27 +589,92 @@
   <section id="pricing">
     <div class="wrap">
       <div class="section-head">
-        <span class="kicker">Simple pricing</span>
+        <span class="kicker">Simple, transparent pricing</span>
         <h2>One setup fee + small monthly fee</h2>
-        <p>Contact us for a quote tailored to your school's size. No hidden costs — hosting, support and branding are all included.</p>
+        <p>One-time setup to go live with your school's own branded app, then a small monthly fee. No hidden costs — hosting, support and branding are all included.</p>
       </div>
-      <div class="pricing-card">
-        <h3 style="color: var(--indigo-900);">White-label School Package</h3>
-        <div class="price-row">
-          <span class="amount">₹</span>
-          <span class="per">Custom quote</span>
+
+      <div class="setup-strip">
+        <strong>One-time setup fee: ₹15,000 – ₹25,000</strong> — includes your school's own branded app
+        (name, logo &amp; colours), student/staff data import, staff training &amp; onboarding.
+        Setup is <strong>free in the first year</strong>.
+      </div>
+
+      <div class="pricing-grid">
+        <div class="tier-card">
+          <div class="tier-name">Small</div>
+          <div class="tier-students">Up to 150 students</div>
+          <div class="tier-price"><span class="amount">₹1,999</span> <span class="per">/ month</span></div>
+          <div class="tier-annual">≈ ₹24,000 / year</div>
+          <hr>
+          <ul>
+            <li>Full app for parents, teachers &amp; staff</li>
+            <li>Homework, attendance &amp; notices</li>
+            <li>All modules included</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Request a quote</a>
         </div>
-        <ul>
-          <li>Your school's name, logo & colours</li>
-          <li>Android & Web app for your school</li>
-          <li>Students, classes & staff data import</li>
-          <li>Staff training & onboarding</li>
-          <li>Hosting, security & regular updates</li>
-          <li>Priority support for your school</li>
-        </ul>
-        <a href="#contact" class="btn-primary">Request a quote</a>
-        <p class="pricing-note">Multi-branch and annual plans available. Ask about our freemium option for small schools.</p>
+
+        <div class="tier-card popular">
+          <div class="tier-name">Growing</div>
+          <div class="tier-students">150 – 350 students</div>
+          <div class="tier-price"><span class="amount">₹3,499</span> <span class="per">/ month</span></div>
+          <div class="tier-annual">≈ ₹42,000 / year</div>
+          <hr>
+          <ul>
+            <li>Everything in Small</li>
+            <li>Exams, report cards &amp; surveys</li>
+            <li>Push notifications to every parent</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Request a quote</a>
+        </div>
+
+        <div class="tier-card">
+          <div class="tier-name">Standard</div>
+          <div class="tier-students">350 – 700 students</div>
+          <div class="tier-price"><span class="amount">₹5,999</span> <span class="per">/ month</span></div>
+          <div class="tier-annual">≈ ₹72,000 / year</div>
+          <hr>
+          <ul>
+            <li>Everything in Growing</li>
+            <li>Multi-class filters &amp; monthly summaries</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Request a quote</a>
+        </div>
+
+        <div class="tier-card">
+          <div class="tier-name">Large</div>
+          <div class="tier-students">700 – 1,500 students</div>
+          <div class="tier-price"><span class="amount">₹9,999</span> <span class="per">/ month</span></div>
+          <div class="tier-annual">≈ ₹1,20,000 / year</div>
+          <hr>
+          <ul>
+            <li>Everything in Standard</li>
+            <li>Dedicated onboarding call</li>
+            <li>Premium support</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Request a quote</a>
+        </div>
+
+        <div class="tier-card">
+          <div class="tier-name">Multi-branch</div>
+          <div class="tier-students">1,500+ or school chains</div>
+          <div class="tier-price"><span class="amount">₹15,000</span> <span class="per">/ month +</span></div>
+          <div class="tier-annual">Custom for chains &amp; trusts</div>
+          <hr>
+          <ul>
+            <li>All modules across every branch</li>
+            <li>Central admin &amp; per-branch controls</li>
+            <li>Dedicated support manager</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Talk to sales</a>
+        </div>
       </div>
+
+      <p class="pricing-footnote">Prices are exclusive of GST (18% applicable) and can be tailored to your school.
+      Love it? Pay 2 years upfront and save 12%. WhatsApp / SMS message packs are billed separately
+      (₹1,000 per 4,000 messages) so your subscription stays low.</p>
     </div>
   </section>
 
