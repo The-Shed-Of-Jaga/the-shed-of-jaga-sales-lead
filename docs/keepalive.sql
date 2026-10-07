@@ -6,7 +6,9 @@
 --
 -- To run: once, in the Supabase Dashboard > SQL Editor.
 -- After this, it is called automatically by .github/workflows/keepalive.yml
--- and/or an external cron (cron-job.org) every 2-3 days.
+-- (a burst of 4 calls, twice daily) and/or an external cron (cron-job.org).
+-- Supabase's inactivity guideline is "a few user requests to the database
+-- each day over the previous week" — sparse pings are not enough.
 -- ----------------------------------------------------------------------------
 
 CREATE OR REPLACE FUNCTION public.keepalive_ping()

@@ -69,8 +69,10 @@ Supabase **free tier pauses a project after ~7 days of low database activity**. 
 (static HTML on GitHub Pages) never stops, but the lead form + email would go dark if the
 project pauses. Two INDEPENDENT pingers prevent the pause:
 
-1. **GitHub Actions** — `.github/workflows/keepalive.yml`, every 2 days (`0 8 */2 * *`),
-   POSTs `{}/rest/v1/rpc/keepalive_ping` with the anon key. Expect HTTP 204.
+1. **GitHub Actions** — `.github/workflows/keepalive.yml`, twice daily (`30 2,14 * * *`),
+   POSTs `{}/rest/v1/rpc/keepalive_ping` 4x per run with the anon key. Expect HTTP 204.
+   Supabase's bar is "a few database requests **each day**" — a single ping every 2 days
+   was below it and triggered a pause warning (Oct 2026). Don't thin this back out.
    - ⚠️ GitHub **auto-disables scheduled workflows after 60 days with no repo commits**.
      If the repo goes quiet >60 days, this pinger stops silently. Refresh/commit occasionally
      (or rely on pinger #2).
